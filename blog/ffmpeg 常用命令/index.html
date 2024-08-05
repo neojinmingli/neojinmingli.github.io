@@ -1070,97 +1070,99 @@
 <p>初学者用户建议选择 <code>ffmpeg-git-essentials.7z</code></p>
 <hr />
 <h3 id="_1">查看视频一共有多少帧数<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>ffprobe<span class="w"> </span>-v<span class="w"> </span>error<span class="w"> </span>-select_streams<span class="w"> </span>v:0<span class="w"> </span>-show_entries<span class="w"> </span><span class="nv">stream</span><span class="o">=</span>nb_frames<span class="w"> </span>-of<span class="w"> </span><span class="nv">default</span><span class="o">=</span><span class="nv">nokey</span><span class="o">=</span><span class="m">1</span>:noprint_wrappers<span class="o">=</span><span class="m">1</span><span class="w"> </span>your_video_file.mp4
-</code></pre></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ffprobe<span class="w"> </span>-v<span class="w"> </span>error<span class="w"> </span>-select_streams<span class="w"> </span>v:0<span class="w"> </span>-show_entries<span class="w"> </span><span class="nv">stream</span><span class="o">=</span>nb_frames<span class="w"> </span>-of<span class="w"> </span><span class="nv">default</span><span class="o">=</span><span class="nv">nokey</span><span class="o">=</span><span class="m">1</span>:noprint_wrappers<span class="o">=</span><span class="m">1</span><span class="w"> </span>your_video_file.mp4
+</code></pre></div></td></tr></table></div>
 <hr />
 <h3 id="_2">提升视频锐度<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>ffmpeg<span class="w"> </span>-i<span class="w"> </span>input.mp4<span class="w"> </span>-vf<span class="w"> </span><span class="s2">&quot;unsharp&quot;</span><span class="w"> </span>output.mp4
-</code></pre></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ffmpeg<span class="w"> </span>-i<span class="w"> </span>input.mp4<span class="w"> </span>-vf<span class="w"> </span><span class="s2">&quot;unsharp&quot;</span><span class="w"> </span>output.mp4
+</code></pre></div></td></tr></table></div>
 <hr />
 <h3 id="_3">提升视频分辨率<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>ffmpeg<span class="w"> </span>-i<span class="w"> </span>input.mp4<span class="w"> </span>-vf<span class="w"> </span><span class="s2">&quot;scale=3840:2160&quot;</span><span class="w"> </span>output.mp4
-</code></pre></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ffmpeg<span class="w"> </span>-i<span class="w"> </span>input.mp4<span class="w"> </span>-vf<span class="w"> </span><span class="s2">&quot;scale=3840:2160&quot;</span><span class="w"> </span>output.mp4
+</code></pre></div></td></tr></table></div>
 <hr />
 <h3 id="_4">查看视频分辨率<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>ffprobe<span class="w"> </span>-v<span class="w"> </span>error<span class="w"> </span>-select_streams<span class="w"> </span>v:0<span class="w"> </span>-show_entries<span class="w"> </span><span class="nv">stream</span><span class="o">=</span>width,height<span class="w"> </span>-of<span class="w"> </span><span class="nv">csv</span><span class="o">=</span><span class="nv">s</span><span class="o">=</span>x:p<span class="o">=</span><span class="m">0</span><span class="w"> </span>video.mp4
-</code></pre></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ffprobe<span class="w"> </span>-v<span class="w"> </span>error<span class="w"> </span>-select_streams<span class="w"> </span>v:0<span class="w"> </span>-show_entries<span class="w"> </span><span class="nv">stream</span><span class="o">=</span>width,height<span class="w"> </span>-of<span class="w"> </span><span class="nv">csv</span><span class="o">=</span><span class="nv">s</span><span class="o">=</span>x:p<span class="o">=</span><span class="m">0</span><span class="w"> </span>video.mp4
+</code></pre></div></td></tr></table></div>
 <hr />
 <h3 id="_5">查看视频元数据<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>ffprobe<span class="w"> </span>-v<span class="w"> </span>quiet<span class="w"> </span>-print_format<span class="w"> </span>json<span class="w"> </span>-show_format<span class="w"> </span>your_video_file.mp4
-</code></pre></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ffprobe<span class="w"> </span>-v<span class="w"> </span>quiet<span class="w"> </span>-print_format<span class="w"> </span>json<span class="w"> </span>-show_format<span class="w"> </span>your_video_file.mp4
+</code></pre></div></td></tr></table></div>
 <hr />
 <h3 id="_6">把多个视频合并为一个视频<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>file &#39;input3.mp4&#39;
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>file &#39;input3.mp4&#39;
 file &#39;input1.mp4&#39;
 file &#39;input2.mp4&#39;
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 <p>把这个 <code>txt</code> 文件和待处理的视频放到同一文件夹下，<code>ffmpeg</code> 会按照从上倒下的顺序合并视频</p>
 <p>然后，你可以使用以下命令合并视频：</p>
-<div class="highlight"><pre><span></span><code>ffmpeg<span class="w"> </span>-f<span class="w"> </span>concat<span class="w"> </span>-safe<span class="w"> </span><span class="m">0</span><span class="w"> </span>-i<span class="w"> </span>files.txt<span class="w"> </span>-c<span class="w"> </span>copy<span class="w"> </span>output.mp4
-</code></pre></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ffmpeg<span class="w"> </span>-f<span class="w"> </span>concat<span class="w"> </span>-safe<span class="w"> </span><span class="m">0</span><span class="w"> </span>-i<span class="w"> </span>files.txt<span class="w"> </span>-c<span class="w"> </span>copy<span class="w"> </span>output.mp4
+</code></pre></div></td></tr></table></div>
 <hr />
 <h3 id="_7">视频转换为不同的格式<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>ffmpeg<span class="w"> </span>-i<span class="w"> </span>input.mp4<span class="w"> </span>output.avi
-</code></pre></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ffmpeg<span class="w"> </span>-i<span class="w"> </span>input.mp4<span class="w"> </span>output.avi
+</code></pre></div></td></tr></table></div>
 <hr />
 <h3 id="_8">剪切视频<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>ffmpeg<span class="w"> </span>-i<span class="w"> </span>input.mp4<span class="w"> </span>-ss<span class="w"> </span><span class="m">00</span>:00:30<span class="w"> </span>-t<span class="w"> </span><span class="m">00</span>:00:10<span class="w"> </span>-c:v<span class="w"> </span>libx264<span class="w"> </span>-c:a<span class="w"> </span>aac<span class="w"> </span>output.mp4
-</code></pre></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ffmpeg<span class="w"> </span>-i<span class="w"> </span>input.mp4<span class="w"> </span>-ss<span class="w"> </span><span class="m">00</span>:00:30<span class="w"> </span>-t<span class="w"> </span><span class="m">00</span>:00:10<span class="w"> </span>-c:v<span class="w"> </span>libx264<span class="w"> </span>-c:a<span class="w"> </span>aac<span class="w"> </span>output.mp4
+</code></pre></div></td></tr></table></div>
 <p>使用 ffmpeg 剪切视频，你可以使用 <code>-ss</code> 选项来指定开始时间，使用 <code>-t</code> 选项来指定持续时间。例如，如果你想从视频的第 30 秒开始，剪切 10 秒的视频，你可以使用以上命令</p>
 <p><code>-c copy</code> 指定了将原始数据流复制到输出文件，而不进行任何重新编码（用 <code>-c copy</code> 剪切的视频不会将视频重新编码，这种方式速度非常快，但可能会导致一些问题，因为它可能会在非关键帧（I帧）的位置切割视频，导致切割出来的视频在开始的一段时间内无法正常播放。所以我们用以上新的命令）</p>
 <p>注意，时间可以用时:分:秒的格式指定，也可以直接用秒数指定。例如，<code>00:01:30</code> 和 <code>90</code> 都表示 1 分 30 秒。</p>
 <hr />
 <h3 id="_9">把音频从视频中分离出来<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>ffmpeg<span class="w"> </span>-i<span class="w"> </span>input.mp4<span class="w"> </span>-vn<span class="w"> </span>output.aac
-</code></pre></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ffmpeg<span class="w"> </span>-i<span class="w"> </span>input.mp4<span class="w"> </span>-vn<span class="w"> </span>output.aac
+</code></pre></div></td></tr></table></div>
 <p>在这里，<code>input.mp4</code> 是你的输入文件，<code>-vn</code> 选项禁用了视频流，<code>output.aac</code> 是输出的音频文件。</p>
 <hr />
 <h3 id="_10">禁用音频，把视频文件分离出来<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>ffmpeg<span class="w"> </span>-i<span class="w"> </span>input.mp4<span class="w"> </span>-an<span class="w"> </span>output.mp4
-</code></pre></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ffmpeg<span class="w"> </span>-i<span class="w"> </span>input.mp4<span class="w"> </span>-an<span class="w"> </span>output.mp4
+</code></pre></div></td></tr></table></div>
 <p>在这里，<code>input.mp4</code> 是你的输入文件，<code>-an</code> 选项禁用了音频流，<code>output.mp4</code> 是输出的视频文件。</p>
 <hr />
 <h3 id="_11">改变音频格式<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>ffmpeg<span class="w"> </span>-i<span class="w"> </span>input.mp3<span class="w"> </span>output.aac
-</code></pre></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ffmpeg<span class="w"> </span>-i<span class="w"> </span>input.mp3<span class="w"> </span>output.aac
+</code></pre></div></td></tr></table></div>
 <hr />
 <h3 id="_12">调整视频的分辨率<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>ffmpeg<span class="w"> </span>-i<span class="w"> </span>input.mp4<span class="w"> </span>-vf<span class="w"> </span><span class="s2">&quot;scale=1280:720&quot;</span><span class="w"> </span>output.mp4
-</code></pre></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ffmpeg<span class="w"> </span>-i<span class="w"> </span>input.mp4<span class="w"> </span>-vf<span class="w"> </span><span class="s2">&quot;scale=1280:720&quot;</span><span class="w"> </span>output.mp4
+</code></pre></div></td></tr></table></div>
 <p>在这里，<code>input.mp4</code> 是你的输入文件，<code>scale=1280:720</code> 是一个过滤器，用于将视频的分辨率调整为 <code>1280x720</code>，<code>output.mp4</code> 是输出文件。</p>
 <hr />
 <h3 id="_13">添加视频水印<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>ffmpeg<span class="w"> </span>-i<span class="w"> </span>input.mp4<span class="w"> </span>-i<span class="w"> </span>watermark.png<span class="w"> </span>-filter_complex<span class="w"> </span><span class="s2">&quot;overlay=W-w-10:H-h-10&quot;</span><span class="w"> </span>output.mp4
-</code></pre></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ffmpeg<span class="w"> </span>-i<span class="w"> </span>input.mp4<span class="w"> </span>-i<span class="w"> </span>watermark.png<span class="w"> </span>-filter_complex<span class="w"> </span><span class="s2">&quot;overlay=W-w-10:H-h-10&quot;</span><span class="w"> </span>output.mp4
+</code></pre></div></td></tr></table></div>
 <p>在这里，<code>input.mp4</code> 是你的输入视频文件，<code>watermark.png</code> 是你的水印图片，<code>overlay=W-w-10:H-h-10</code> 是一个过滤器，它将水印图片放在视频的右下角，离边缘 <code>10</code> 像素，<code>output.mp4</code> 是输出文件。</p>
 <p>注意，<code>W</code> 和 <code>H</code> 分别代表视频的宽度和高度，<code>w</code> 和 <code>h</code> 分别代表水印的宽度和高度。你可以调整这些值来改变水印的位置。</p>
 <hr />
 <h3 id="_14">转码视频<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>ffmpeg<span class="w"> </span>-i<span class="w"> </span>input.mp4<span class="w"> </span>-b:v<span class="w"> </span>1000k<span class="w"> </span>-b:a<span class="w"> </span>128k<span class="w"> </span>output.mp4
-</code></pre></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ffmpeg<span class="w"> </span>-i<span class="w"> </span>input.mp4<span class="w"> </span>-b:v<span class="w"> </span>1000k<span class="w"> </span>-b:a<span class="w"> </span>128k<span class="w"> </span>output.mp4
+</code></pre></div></td></tr></table></div>
 <p><code>input.mp4</code> 是你的输入视频文件，<code>1000k</code> 是视频比特率，<code>128k</code> 是音频比特率，<code>output.mp4</code> 是输出文件。</p>
 <hr />
 <h3 id="_15">倒放视频<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>ffmpeg<span class="w"> </span>-i<span class="w"> </span>input.mp4<span class="w"> </span>-vf<span class="w"> </span><span class="s2">&quot;reverse&quot;</span><span class="w"> </span>output.mp4
-</code></pre></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ffmpeg<span class="w"> </span>-i<span class="w"> </span>input.mp4<span class="w"> </span>-vf<span class="w"> </span><span class="s2">&quot;reverse&quot;</span><span class="w"> </span>output.mp4
+</code></pre></div></td></tr></table></div>
 <p><code>input.mp4</code> 是你的输入文件，<code>-vf "reverse"</code> 选项将视频流倒放，<code>output.mp4</code> 是输出的视频文件</p>
 <hr />
 <h3 id="_16">录制当前页面视频<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Windows 下：</li>
 </ul>
-<div class="highlight"><pre><span></span><code>ffmpeg<span class="w"> </span>-f<span class="w"> </span>gdigrab<span class="w"> </span>-framerate<span class="w"> </span><span class="m">30</span><span class="w"> </span>-i<span class="w"> </span>desktop<span class="w"> </span>output.mp4
-</code></pre></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ffmpeg<span class="w"> </span>-f<span class="w"> </span>gdigrab<span class="w"> </span>-framerate<span class="w"> </span><span class="m">30</span><span class="w"> </span>-i<span class="w"> </span>desktop<span class="w"> </span>output.mp4
+</code></pre></div></td></tr></table></div>
 <ul>
 <li>Linux 下：</li>
 </ul>
-<div class="highlight"><pre><span></span><code>ffmpeg<span class="w"> </span>-f<span class="w"> </span>x11grab<span class="w"> </span>-video_size<span class="w"> </span>1920x1080<span class="w"> </span>-framerate<span class="w"> </span><span class="m">30</span><span class="w"> </span>-i<span class="w"> </span>:0.0<span class="w"> </span>output.mp4
-</code></pre></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ffmpeg<span class="w"> </span>-f<span class="w"> </span>x11grab<span class="w"> </span>-video_size<span class="w"> </span>1920x1080<span class="w"> </span>-framerate<span class="w"> </span><span class="m">30</span><span class="w"> </span>-i<span class="w"> </span>:0.0<span class="w"> </span>output.mp4
+</code></pre></div></td></tr></table></div>
 <p>按下 <code>q</code> 停止录制</p>
 <hr />
 <h3 id="gif">视频转换为 gif<a class="headerlink" href="#gif" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>ffmpeg<span class="w"> </span>-i<span class="w"> </span>input.mp4<span class="w"> </span>-vf<span class="w"> </span><span class="s2">&quot;fps=10,scale=320:-1:flags=lanczos&quot;</span><span class="w"> </span>-c:v<span class="w"> </span>gif<span class="w"> </span>output.gif
-</code></pre></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ffmpeg<span class="w"> </span>-i<span class="w"> </span>input.mp4<span class="w"> </span>-vf<span class="w"> </span><span class="s2">&quot;fps=10,scale=320:-1:flags=lanczos&quot;</span><span class="w"> </span>-c:v<span class="w"> </span>gif<span class="w"> </span>output.gif
+</code></pre></div></td></tr></table></div>
 <p>在这个命令中：</p>
 <ul>
 <li><code>input.mp4</code> 是你的输入视频文件。</li>
@@ -1170,12 +1172,12 @@ file &#39;input2.mp4&#39;
 </ul>
 <hr />
 <h3 id="gif_1">将 GIF 转换为视频<a class="headerlink" href="#gif_1" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>ffmpeg<span class="w"> </span>-i<span class="w"> </span>input.gif<span class="w"> </span>output.mp4
-</code></pre></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ffmpeg<span class="w"> </span>-i<span class="w"> </span>input.gif<span class="w"> </span>output.mp4
+</code></pre></div></td></tr></table></div>
 <hr />
 <h3 id="_17">查看视频尺寸<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>ffprobe<span class="w"> </span>-v<span class="w"> </span>error<span class="w"> </span>-select_streams<span class="w"> </span>v:0<span class="w"> </span>-show_entries<span class="w"> </span><span class="nv">stream</span><span class="o">=</span>width,height<span class="w"> </span>-of<span class="w"> </span><span class="nv">csv</span><span class="o">=</span><span class="nv">s</span><span class="o">=</span>x:p<span class="o">=</span><span class="m">0</span><span class="w"> </span>input.mp4
-</code></pre></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ffprobe<span class="w"> </span>-v<span class="w"> </span>error<span class="w"> </span>-select_streams<span class="w"> </span>v:0<span class="w"> </span>-show_entries<span class="w"> </span><span class="nv">stream</span><span class="o">=</span>width,height<span class="w"> </span>-of<span class="w"> </span><span class="nv">csv</span><span class="o">=</span><span class="nv">s</span><span class="o">=</span>x:p<span class="o">=</span><span class="m">0</span><span class="w"> </span>input.mp4
+</code></pre></div></td></tr></table></div>
 <p>在这个命令中：</p>
 <ul>
 <li><code>-v error</code> 仅显示错误消息。</li>
@@ -1187,8 +1189,8 @@ file &#39;input2.mp4&#39;
 <p>这个命令会输出类似 <code>1280x720</code> 这样的结果，表示视频的宽度为 1280 像素，高度为 720 像素。</p>
 <hr />
 <h3 id="_18">剪切视频画面<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>ffmpeg<span class="w"> </span>-i<span class="w"> </span>input.mp4<span class="w"> </span>-filter:v<span class="w"> </span><span class="s2">&quot;crop=300:200:10:20&quot;</span><span class="w"> </span>output.mp4
-</code></pre></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ffmpeg<span class="w"> </span>-i<span class="w"> </span>input.mp4<span class="w"> </span>-filter:v<span class="w"> </span><span class="s2">&quot;crop=300:200:10:20&quot;</span><span class="w"> </span>output.mp4
+</code></pre></div></td></tr></table></div>
 <p>在这个命令中：</p>
 <ul>
 <li><code>-i input.mp4</code> 指定输入文件。</li>
@@ -1197,8 +1199,8 @@ file &#39;input2.mp4&#39;
 </ul>
 <hr />
 <h3 id="_19">调整视频的亮度<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>ffmpeg<span class="w"> </span>-i<span class="w"> </span>input.mp4<span class="w"> </span>-vf<span class="w"> </span><span class="s2">&quot;eq=brightness=0.1&quot;</span><span class="w"> </span>output.mp4
-</code></pre></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ffmpeg<span class="w"> </span>-i<span class="w"> </span>input.mp4<span class="w"> </span>-vf<span class="w"> </span><span class="s2">&quot;eq=brightness=0.1&quot;</span><span class="w"> </span>output.mp4
+</code></pre></div></td></tr></table></div>
 <p>在这个命令中：</p>
 <ul>
 <li><code>-i input.mp4</code> 指定输入文件。</li>
@@ -1207,8 +1209,8 @@ file &#39;input2.mp4&#39;
 </ul>
 <hr />
 <h3 id="_20">调整视频的对比度<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>ffmpeg<span class="w"> </span>-i<span class="w"> </span>input.mp4<span class="w"> </span>-vf<span class="w"> </span><span class="s2">&quot;eq=contrast=1.5&quot;</span><span class="w"> </span>output.mp4
-</code></pre></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ffmpeg<span class="w"> </span>-i<span class="w"> </span>input.mp4<span class="w"> </span>-vf<span class="w"> </span><span class="s2">&quot;eq=contrast=1.5&quot;</span><span class="w"> </span>output.mp4
+</code></pre></div></td></tr></table></div>
 <ul>
 <li><code>-i input.mp4</code> 指定输入文件。</li>
 <li><code>-vf "eq=contrast=1.5"</code> 应用视频过滤器。"eq=contrast=1.5" 增加了视频的对比度。</li>
@@ -1216,8 +1218,8 @@ file &#39;input2.mp4&#39;
 </ul>
 <hr />
 <h3 id="_21">查看图片尺寸<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>ffprobe<span class="w"> </span>-v<span class="w"> </span>error<span class="w"> </span>-select_streams<span class="w"> </span>v:0<span class="w"> </span>-show_entries<span class="w"> </span><span class="nv">stream</span><span class="o">=</span>width,height<span class="w"> </span>-of<span class="w"> </span><span class="nv">csv</span><span class="o">=</span><span class="nv">s</span><span class="o">=</span>x:p<span class="o">=</span><span class="m">0</span><span class="w"> </span>image.jpg
-</code></pre></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ffprobe<span class="w"> </span>-v<span class="w"> </span>error<span class="w"> </span>-select_streams<span class="w"> </span>v:0<span class="w"> </span>-show_entries<span class="w"> </span><span class="nv">stream</span><span class="o">=</span>width,height<span class="w"> </span>-of<span class="w"> </span><span class="nv">csv</span><span class="o">=</span><span class="nv">s</span><span class="o">=</span>x:p<span class="o">=</span><span class="m">0</span><span class="w"> </span>image.jpg
+</code></pre></div></td></tr></table></div>
 <p>在这个命令中：</p>
 <ul>
 <li><code>-v error</code> 表示只打印错误消息。</li>
@@ -1229,8 +1231,8 @@ file &#39;input2.mp4&#39;
 <p>这个命令将输出图片的宽度和高度，格式为 <code>widthxheight</code>。</p>
 <hr />
 <h3 id="m4s-ffmpeg-mp3-bilibili">m4s 的视频用 ffmpeg 转换为 mp3 bilibili<a class="headerlink" href="#m4s-ffmpeg-mp3-bilibili" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>ffmpeg<span class="w"> </span>-i<span class="w"> </span>input.m4s<span class="w"> </span>-vn<span class="w"> </span>-ab<span class="w"> </span>128k<span class="w"> </span>output.mp3
-</code></pre></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ffmpeg<span class="w"> </span>-i<span class="w"> </span>input.m4s<span class="w"> </span>-vn<span class="w"> </span>-ab<span class="w"> </span>128k<span class="w"> </span>output.mp3
+</code></pre></div></td></tr></table></div>
 <p>在这个命令中：</p>
 <ul>
 <li><code>-i input.m4s</code> 指定了输入文件的名称，你需要将 <code>input.m4s</code> 替换为你的 m4s 文件的实际路径和名称。</li>
@@ -1240,8 +1242,8 @@ file &#39;input2.mp4&#39;
 </ul>
 <hr />
 <h3 id="m4s-mp4-bilibili">把 m4s 的视频转换为 mp4 bilibili<a class="headerlink" href="#m4s-mp4-bilibili" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>ffmpeg<span class="w"> </span>-i<span class="w"> </span>input.m4s<span class="w"> </span>-codec<span class="w"> </span>copy<span class="w"> </span>output.mp4
-</code></pre></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ffmpeg<span class="w"> </span>-i<span class="w"> </span>input.m4s<span class="w"> </span>-codec<span class="w"> </span>copy<span class="w"> </span>output.mp4
+</code></pre></div></td></tr></table></div>
 <p>在这个命令中：</p>
 <ul>
 <li><code>-i input.m4s</code> 指定了输入文件的名称，你需要将 <code>input.m4s</code> 替换为你的 m4s 文件的实际路径和名称。</li>
@@ -1251,40 +1253,40 @@ file &#39;input2.mp4&#39;
 <p>请注意，这个命令假设你的 m4s 文件包含了可以直接复制到 mp4 容器中的音频和视频流。如果你的 m4s 文件中的音频或视频编码不兼容 mp4，你可能需要进行转码。</p>
 <hr />
 <h3 id="bilibili">把视频和音频合并 bilibili<a class="headerlink" href="#bilibili" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>ffmpeg<span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;your_video&quot;</span><span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;your_audio&quot;</span><span class="w"> </span>-c:a<span class="w"> </span>aac<span class="w"> </span>-strict<span class="w"> </span>experimental<span class="w"> </span><span class="s2">&quot;your_video.mp4</span>
-</code></pre></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ffmpeg<span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;your_video&quot;</span><span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;your_audio&quot;</span><span class="w"> </span>-c:a<span class="w"> </span>aac<span class="w"> </span>-strict<span class="w"> </span>experimental<span class="w"> </span><span class="s2">&quot;your_video.mp4</span>
+</code></pre></div></td></tr></table></div>
 <hr />
 <h3 id="ffmpeg">ffmpeg 降低画质的命令<a class="headerlink" href="#ffmpeg" title="Permanent link">&para;</a></h3>
 <p>在使用 <code>ffmpeg</code> 进行视频处理时，有时需要降低视频的画质以减小文件大小或适应特定的网络传输需求。以下是一些常用的 <code>ffmpeg</code> 命令来降低视频画质：</p>
 <ol>
 <li>
 <p><strong>调整视频比特率（Bitrate）</strong>：
-   <div class="highlight"><pre><span></span><code>ffmpeg<span class="w"> </span>-i<span class="w"> </span>input.mp4<span class="w"> </span>-b:v<span class="w"> </span>1000k<span class="w"> </span>output.mp4
-</code></pre></div>
+   <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ffmpeg<span class="w"> </span>-i<span class="w"> </span>input.mp4<span class="w"> </span>-b:v<span class="w"> </span>1000k<span class="w"> </span>output.mp4
+</code></pre></div></td></tr></table></div>
    这条命令将视频的比特率设置为 1000 kbps，从而降低视频的画质。比特率越低，画质越差。</p>
 </li>
 <li>
 <p><strong>使用 CRF（Constant Rate Factor）</strong>：
-   <div class="highlight"><pre><span></span><code>ffmpeg<span class="w"> </span>-i<span class="w"> </span>input.mp4<span class="w"> </span>-c:v<span class="w"> </span>libx264<span class="w"> </span>-crf<span class="w"> </span><span class="m">28</span><span class="w"> </span>output.mp4
-</code></pre></div>
+   <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ffmpeg<span class="w"> </span>-i<span class="w"> </span>input.mp4<span class="w"> </span>-c:v<span class="w"> </span>libx264<span class="w"> </span>-crf<span class="w"> </span><span class="m">28</span><span class="w"> </span>output.mp4
+</code></pre></div></td></tr></table></div>
    CRF 是 x264 和 x265 编码器的一个参数，用于控制输出视频的质量。CRF 值越大，视频质量越低。默认值通常是 23，范围是 0-51。</p>
 </li>
 <li>
 <p><strong>调整分辨率</strong>：
-   <div class="highlight"><pre><span></span><code>ffmpeg<span class="w"> </span>-i<span class="w"> </span>input.mp4<span class="w"> </span>-vf<span class="w"> </span><span class="s2">&quot;scale=1280:720&quot;</span><span class="w"> </span>output.mp4
-</code></pre></div>
+   <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ffmpeg<span class="w"> </span>-i<span class="w"> </span>input.mp4<span class="w"> </span>-vf<span class="w"> </span><span class="s2">&quot;scale=1280:720&quot;</span><span class="w"> </span>output.mp4
+</code></pre></div></td></tr></table></div>
    这条命令将视频的分辨率调整为 1280x720，从而降低画质。分辨率越低，画质越差。</p>
 </li>
 <li>
 <p><strong>同时调整比特率和分辨率</strong>：
-   <div class="highlight"><pre><span></span><code>ffmpeg<span class="w"> </span>-i<span class="w"> </span>input.mp4<span class="w"> </span>-b:v<span class="w"> </span>800k<span class="w"> </span>-vf<span class="w"> </span><span class="s2">&quot;scale=640:360&quot;</span><span class="w"> </span>output.mp4
-</code></pre></div>
+   <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ffmpeg<span class="w"> </span>-i<span class="w"> </span>input.mp4<span class="w"> </span>-b:v<span class="w"> </span>800k<span class="w"> </span>-vf<span class="w"> </span><span class="s2">&quot;scale=640:360&quot;</span><span class="w"> </span>output.mp4
+</code></pre></div></td></tr></table></div>
    这条命令同时降低了视频的比特率和分辨率，进一步降低了画质。</p>
 </li>
 <li>
 <p><strong>使用预设（Preset）</strong>：
-   <div class="highlight"><pre><span></span><code>ffmpeg<span class="w"> </span>-i<span class="w"> </span>input.mp4<span class="w"> </span>-c:v<span class="w"> </span>libx264<span class="w"> </span>-preset<span class="w"> </span>veryslow<span class="w"> </span>-crf<span class="w"> </span><span class="m">28</span><span class="w"> </span>output.mp4
-</code></pre></div>
+   <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>ffmpeg<span class="w"> </span>-i<span class="w"> </span>input.mp4<span class="w"> </span>-c:v<span class="w"> </span>libx264<span class="w"> </span>-preset<span class="w"> </span>veryslow<span class="w"> </span>-crf<span class="w"> </span><span class="m">28</span><span class="w"> </span>output.mp4
+</code></pre></div></td></tr></table></div>
    预设参数控制编码速度和输出质量之间的平衡。<code>veryslow</code> 预设会花费更多时间进行编码，但通常能产生更好的压缩效果和更低的文件大小。其他预设有 <code>ultrafast</code>, <code>superfast</code>, <code>fast</code>, <code>medium</code>, <code>slow</code>, <code>slower</code> 等。</p>
 </li>
 </ol>

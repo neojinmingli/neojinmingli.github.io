@@ -872,7 +872,22 @@
 </ul>
 <p>要把从 <a href="https://github.com/AGWA/git-crypt/releases">git-crypt</a> 下载的 <code>git-crypt-0.7.0-x86_64.exe</code> 重命名为 <code>git-crypt.exe</code>，否则检测不到环境变量</p>
 <p>把 <code>git-crypt.exe</code> 放到 <code>git\bin</code> 目录下</p>
-<div class="highlight"><pre><span></span><code>gpg<span class="w"> </span>--version
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code>gpg<span class="w"> </span>--version
 
 gpg<span class="w"> </span><span class="o">(</span>GnuPG<span class="o">)</span><span class="w"> </span><span class="m">2</span>.4.3
 libgcrypt<span class="w"> </span><span class="m">1</span>.10.2
@@ -888,21 +903,72 @@ Cipher:<span class="w"> </span>IDEA,<span class="w"> </span>3DES,<span class="w"
 <span class="w">        </span>CAMELLIA128,<span class="w"> </span>CAMELLIA192,<span class="w"> </span>CAMELLIA256
 Hash:<span class="w"> </span>SHA1,<span class="w"> </span>RIPEMD160,<span class="w"> </span>SHA256,<span class="w"> </span>SHA384,<span class="w"> </span>SHA512,<span class="w"> </span>SHA224
 Compression:<span class="w"> </span>Uncompressed,<span class="w"> </span>ZIP,<span class="w"> </span>ZLIB,<span class="w"> </span>BZIP2
-</code></pre></div>
-<p><div class="highlight"><pre><span></span><code>git<span class="w"> </span>--vesion
+</code></pre></div></td></tr></table></div>
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>git<span class="w"> </span>--vesion
 
 git<span class="w"> </span>version<span class="w"> </span><span class="m">2</span>.42.0.windows.1
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>git-crypt<span class="w"> </span>--version
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>git-crypt<span class="w"> </span>--version
 
 git-crypt<span class="w"> </span><span class="m">0</span>.7.0
-</code></pre></div></p>
+</code></pre></div></td></tr></table></div></p>
 <h4 id="_2">生成密钥<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h4>
 <p>生成 gpg 密钥（推荐在 kleopatra 中生成，因为有 GUI）</p>
-<div class="highlight"><pre><span></span><code>gpg2<span class="w"> </span>--full-gen-key<span class="w">      </span>&lt;<span class="w"> </span><span class="m">2</span>.1.17
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>gpg2<span class="w"> </span>--full-gen-key<span class="w">      </span>&lt;<span class="w"> </span><span class="m">2</span>.1.17
 gpg<span class="w"> </span>--full-generate-key<span class="w">  </span>&gt;<span class="o">=</span><span class="w"> </span><span class="m">2</span>.1.17
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>gpg<span class="w"> </span><span class="o">(</span>GnuPG<span class="o">)</span><span class="w"> </span><span class="m">2</span>.4.3<span class="p">;</span><span class="w"> </span>Copyright<span class="w"> </span><span class="o">(</span>C<span class="o">)</span><span class="w"> </span><span class="m">2023</span><span class="w"> </span>g10<span class="w"> </span>Code<span class="w"> </span>GmbH
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span></pre></div></td><td class="code"><div><pre><span></span><code>gpg<span class="w"> </span><span class="o">(</span>GnuPG<span class="o">)</span><span class="w"> </span><span class="m">2</span>.4.3<span class="p">;</span><span class="w"> </span>Copyright<span class="w"> </span><span class="o">(</span>C<span class="o">)</span><span class="w"> </span><span class="m">2023</span><span class="w"> </span>g10<span class="w"> </span>Code<span class="w"> </span>GmbH
 This<span class="w"> </span>is<span class="w"> </span>free<span class="w"> </span>software:<span class="w"> </span>you<span class="w"> </span>are<span class="w"> </span>free<span class="w"> </span>to<span class="w"> </span>change<span class="w"> </span>and<span class="w"> </span>redistribute<span class="w"> </span>it.
 There<span class="w"> </span>is<span class="w"> </span>NO<span class="w"> </span>WARRANTY,<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>extent<span class="w"> </span>permitted<span class="w"> </span>by<span class="w"> </span>law.
 
@@ -949,17 +1015,33 @@ pub<span class="w">   </span>rsa3072<span class="w"> </span><span class="m">2024
 <span class="w">      </span>095A4F5A6125D5EB02FE5CB824B8F8F7EAFFD84D
 uid<span class="w">                      </span>YOUR_NAME<span class="w"> </span><span class="o">(</span><span class="nb">test</span><span class="o">)</span><span class="w"> </span>&lt;test@test.com&gt;
 sub<span class="w">   </span>rsa3072<span class="w"> </span><span class="m">2024</span>-02-25<span class="w"> </span><span class="o">[</span>E<span class="o">]</span>
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 <h3 id="git-crypt">git-crypt 使用步骤<a class="headerlink" href="#git-crypt" title="Permanent link">&para;</a></h3>
 <h4 id="1-git">1. git 初始化<a class="headerlink" href="#1-git" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>init
-</code></pre></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>git<span class="w"> </span>init
+</code></pre></div></td></tr></table></div>
 <h4 id="2-gitattributes">2. 创建 .gitattributes<a class="headerlink" href="#2-gitattributes" title="Permanent link">&para;</a></h4>
 <p>在仓库根目录下创建 <code>.gitattributes</code> 文件</p>
-<div class="highlight"><pre><span></span><code>touch .gitattributes
-</code></pre></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>touch .gitattributes
+</code></pre></div></td></tr></table></div>
 <h4 id="3-gitattributes">3. 配置 .gitattributes<a class="headerlink" href="#3-gitattributes" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code># 加密 md 文件
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code># 加密 md 文件
 *.md filter=git-crypt diff=git-crypt
 
 # 加密 pdf 文件
@@ -976,29 +1058,29 @@ Test/*.md filter=git-crypt diff=git-crypt
 
 # 加密指定文件夹下的所有文件
 Test/** filter=git-crypt diff=git-crypt
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 <h4 id="4-gitattributes">4. 提交 .gitattributes<a class="headerlink" href="#4-gitattributes" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>add<span class="w"> </span>.gitattributes
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>git commit -m &quot;add.gitattributes&quot;
-</code></pre></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>git<span class="w"> </span>add<span class="w"> </span>.gitattributes
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>git commit -m &quot;add.gitattributes&quot;
+</code></pre></div></td></tr></table></div>
 <h4 id="5-git-crypt">5. git-crypt 初始化<a class="headerlink" href="#5-git-crypt" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code>git-crypt<span class="w"> </span>init
-</code></pre></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>git-crypt<span class="w"> </span>init
+</code></pre></div></td></tr></table></div>
 <h4 id="6">6. 导入密钥<a class="headerlink" href="#6" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code>git-crypt<span class="w"> </span>add-gpg-user<span class="w"> </span>&lt;gpg<span class="w"> </span>Key<span class="w"> </span>ID&gt;
-</code></pre></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>git-crypt<span class="w"> </span>add-gpg-user<span class="w"> </span>&lt;gpg<span class="w"> </span>Key<span class="w"> </span>ID&gt;
+</code></pre></div></td></tr></table></div>
 <h4 id="7">7. 正常提交文件<a class="headerlink" href="#7" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>add<span class="w"> </span>.
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;all file&quot;</span>
-</code></pre></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>git<span class="w"> </span>add<span class="w"> </span>.
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;all file&quot;</span>
+</code></pre></div></td></tr></table></div>
 <h4 id="8">8. 加密<a class="headerlink" href="#8" title="Permanent link">&para;</a></h4>
-<div class="highlight"><pre><span></span><code>git-crypt<span class="w"> </span>lock
-</code></pre></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>git-crypt<span class="w"> </span>lock
+</code></pre></div></td></tr></table></div>
 <p>解密</p>
-<div class="highlight"><pre><span></span><code>git-crypt<span class="w"> </span>unlock
-</code></pre></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>git-crypt<span class="w"> </span>unlock
+</code></pre></div></td></tr></table></div>
 <h4 id="9">9. 推送<a class="headerlink" href="#9" title="Permanent link">&para;</a></h4>
 <p>正常推送到远端，git-crypt 会帮你加密文件</p>
 <hr />
@@ -1006,7 +1088,23 @@ Test/** filter=git-crypt diff=git-crypt
 <ol>
 <li><code>.gitattributes</code> 文件配置解释:</li>
 </ol>
-<div class="highlight"><pre><span></span><code># 加密 md 文件
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code># 加密 md 文件
 *.md filter=git-crypt diff=git-crypt
 
 # 加密 pdf 文件
@@ -1023,16 +1121,18 @@ Test/*.md filter=git-crypt diff=git-crypt
 
 # 加密指定文件夹下的所有文件
 Test/** filter=git-crypt diff=git-crypt
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 <ol>
 <li>查看加密状态：</li>
 </ol>
-<div class="highlight"><pre><span></span><code>git-crypt<span class="w"> </span>status
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>$ git-crypt status
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>git-crypt<span class="w"> </span>status
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code>$ git-crypt status
 not encrypted: .gitattributes
     encrypted: secretfile
-</code></pre></div>
+</code></pre></div></td></tr></table></div>
 <p>这表示 <code>secretfile</code> 被加密，而 <code>.gitattributes</code> 没有被加密。</p>
 <hr />
 <p><strong>推荐阅读：</strong></p>
