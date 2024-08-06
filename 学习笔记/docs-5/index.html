@@ -1,0 +1,891 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../docs-4/">
+      
+      
+        <link rel="next" href="../../tags/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.31">
+    
+    
+      
+        <title>git 移除文件提交历史 - jinming' log</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.3cba04c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+  
+  
+  
+  
+  <style>:root{--md-annotation-icon:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 13h-4v4h-2v-4H7v-2h4V7h2v4h4m-5-9A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2Z"/></svg>');}</style>
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Han+Sans:300,300i,400,400i,700,700i%7Cjetbrains+mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Source Han Sans";--md-code-font:"jetbrains mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="jinming&#39; log" class="md-header__button md-logo" aria-label="jinming' log" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            jinming' log
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              git 移除文件提交历史
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="分享" aria-label="分享" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../docs-1/" class="md-tabs__link">
+          
+  
+  学习笔记
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../tags/" class="md-tabs__link">
+        
+  
+    
+  
+  标签
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../about/" class="md-tabs__link">
+        
+  
+    
+  
+  关于我
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="jinming&#39; log" class="md-nav__button md-logo" aria-label="jinming' log" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    jinming' log
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    首页
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    学习笔记
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            学习笔记
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docs-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ffmpeg 常用命令
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docs-2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    git-crypt 教程
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docs-3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ubuntu 命令行学习
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docs-4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    you-get 笔记
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    git 移除文件提交历史
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    git 移除文件提交历史
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      移除文件
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      移除文件夹
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      状态分析
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tags/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    标签
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    关于我
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      移除文件
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      移除文件夹
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      状态分析
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+<nav class="md-tags" >
+  
+    
+    
+    
+      <a href="../../tags/#git" class="md-tag">git</a>
+    
+  
+    
+    
+    
+      <a href="../../tags/#ai" class="md-tag">AI</a>
+    
+  
+</nav>
+
+
+
+  <h1>git 移除文件提交历史</h1>
+
+<h3 id="_1">移除文件<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<p>删除一个文件所有的提交历史要用</p>
+<p><div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>git<span class="w"> </span>filter-branch<span class="w"> </span>--force<span class="w"> </span>--index-filter<span class="w"> </span><span class="s2">&quot;git rm --cached --ignore-unmatch templates.json&quot;</span><span class="w"> </span>--prune-empty<span class="w"> </span>--tag-name-filter<span class="w"> </span>cat<span class="w"> </span>--<span class="w"> </span>--all
+</code></pre></div></td></tr></table></div>
+命令</p>
+<p>具体来说：</p>
+<ul>
+<li><code>git filter-branch</code> 是一个强大的命令，用于重写大量（可能是全部）的分支和标签。</li>
+<li><code>--force</code> 选项用于覆盖现有的备份。</li>
+<li><code>--index-filter</code> 选项用于在每次检查出一个提交时，修改它的索引（即暂存区）。</li>
+<li><code>"git rm --cached --ignore-unmatch templates.json"</code> 是在每次检查出一个提交时运行的命令，它会尝试从索引中删除 <code>templates.json</code> 文件。如果文件不存在，<code>--ignore-unmatch</code> 选项会让 <code>git rm</code> 命令静默退出。</li>
+<li><code>--prune-empty</code> 选项用于在重写历史后删除那些变成空的提交。</li>
+<li><code>--tag-name-filter cat -- --all</code> 选项用于重写所有分支和标签。</li>
+</ul>
+<p>请注意，这是一个破坏性的操作，一旦执行，你的 Git 历史将被永久改变。在执行此操作之前，确保你已经备份了你的工作，并且完全理解这个命令的后果。</p>
+<h3 id="_2">移除文件夹<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>删除一个文件夹的历史提交要用
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>git<span class="w"> </span>filter-branch<span class="w"> </span>--force<span class="w"> </span>--index-filter<span class="w"> </span><span class="s2">&quot;git rm -r --cached --ignore-unmatch &#39;Folder path&#39;&quot;</span><span class="w"> </span>--prune-empty<span class="w"> </span>--tag-name-filter<span class="w"> </span>cat<span class="w"> </span>--<span class="w"> </span>--all
+</code></pre></div></td></tr></table></div>
+因为 <code>git rm --cached --ignore-unmatch</code> 命令默认不处理目录，除非明确指定 <code>-r</code> 选项来递归地移除目录。</p>
+<h3 id="_3">状态分析<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>使用该命令之前要保证当前仓库无未暂存的更改，否则会报以下错误</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code>WARNING:<span class="w"> </span>git-filter-branch<span class="w"> </span>has<span class="w"> </span>a<span class="w"> </span>glut<span class="w"> </span>of<span class="w"> </span>gotchas<span class="w"> </span>generating<span class="w"> </span>mangled<span class="w"> </span><span class="nb">history</span>
+<span class="w">         </span>rewrites.<span class="w">  </span>Hit<span class="w"> </span>Ctrl-C<span class="w"> </span>before<span class="w"> </span>proceeding<span class="w"> </span>to<span class="w"> </span>abort,<span class="w"> </span><span class="k">then</span><span class="w"> </span>use<span class="w"> </span>an
+<span class="w">         </span>alternative<span class="w"> </span>filtering<span class="w"> </span>tool<span class="w"> </span>such<span class="w"> </span>as<span class="w"> </span><span class="s1">&#39;git filter-repo&#39;</span>
+<span class="w">         </span><span class="o">(</span>https://github.com/newren/git-filter-repo/<span class="o">)</span><span class="w"> </span>instead.<span class="w">  </span>See<span class="w"> </span>the
+<span class="w">         </span>filter-branch<span class="w"> </span>manual<span class="w"> </span>page<span class="w"> </span><span class="k">for</span><span class="w"> </span>more<span class="w"> </span>details<span class="p">;</span><span class="w"> </span>to<span class="w"> </span>squelch<span class="w"> </span>this<span class="w"> </span>warning,
+<span class="w">         </span><span class="nb">set</span><span class="w"> </span><span class="nv">FILTER_BRANCH_SQUELCH_WARNING</span><span class="o">=</span><span class="m">1</span>.
+Proceeding<span class="w"> </span>with<span class="w"> </span>filter-branch...
+
+Cannot<span class="w"> </span>rewrite<span class="w"> </span>branches:<span class="w"> </span>You<span class="w"> </span>have<span class="w"> </span>unstaged<span class="w"> </span>changes.
+</code></pre></div></td></tr></table></div>
+<p>运行成功的状态为：
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span></pre></div></td><td class="code"><div><pre><span></span><code>PS<span class="w"> </span>D:<span class="se">\w</span>orkspace&gt;<span class="w"> </span>git<span class="w"> </span>filter-branch<span class="w"> </span>--force<span class="w"> </span>--index-filter<span class="w"> </span><span class="s2">&quot;git rm --cached --ignore-unmatch text-generator.json&quot;</span><span class="w"> </span>--prune-empty<span class="w"> </span>--tag-name-filter<span class="w"> </span>cat<span class="w"> </span>--<span class="w"> </span>--all
+WARNING:<span class="w"> </span>git-filter-branch<span class="w"> </span>has<span class="w"> </span>a<span class="w"> </span>glut<span class="w"> </span>of<span class="w"> </span>gotchas<span class="w"> </span>generating<span class="w"> </span>mangled<span class="w"> </span><span class="nb">history</span>
+<span class="w">         </span>rewrites.<span class="w">  </span>Hit<span class="w"> </span>Ctrl-C<span class="w"> </span>before<span class="w"> </span>proceeding<span class="w"> </span>to<span class="w"> </span>abort,<span class="w"> </span><span class="k">then</span><span class="w"> </span>use<span class="w"> </span>an
+<span class="w">         </span>alternative<span class="w"> </span>filtering<span class="w"> </span>tool<span class="w"> </span>such<span class="w"> </span>as<span class="w"> </span><span class="s1">&#39;git filter-repo&#39;</span>
+<span class="w">         </span><span class="o">(</span>https://github.com/newren/git-filter-repo/<span class="o">)</span><span class="w"> </span>instead.<span class="w">  </span>See<span class="w"> </span>the
+<span class="w">         </span>filter-branch<span class="w"> </span>manual<span class="w"> </span>page<span class="w"> </span><span class="k">for</span><span class="w"> </span>more<span class="w"> </span>details<span class="p">;</span><span class="w"> </span>to<span class="w"> </span>squelch<span class="w"> </span>this<span class="w"> </span>warning,
+<span class="w">         </span><span class="nb">set</span><span class="w"> </span><span class="nv">FILTER_BRANCH_SQUELCH_WARNING</span><span class="o">=</span><span class="m">1</span>.
+Proceeding<span class="w"> </span>with<span class="w"> </span>filter-branch...
+
+Rewrite<span class="w"> </span>cfd9c149ff458d7660928156d2773387dceefacd<span class="w"> </span><span class="o">(</span><span class="m">1</span>/46<span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="m">0</span><span class="w"> </span>seconds<span class="w"> </span>passed,<span class="w"> </span>remaining<span class="w"> </span><span class="m">0</span><span class="w"> </span>predicted<span class="o">)</span><span class="w">    </span>rm<span class="w"> </span><span class="s1">&#39;text-generator.json&#39;</span>
+Rewrite<span class="w"> </span>71d6a7902f88fc9ae1e948241aba63fb93e50043<span class="w"> </span><span class="o">(</span><span class="m">2</span>/46<span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="m">1</span><span class="w"> </span>seconds<span class="w"> </span>passed,<span class="w"> </span>remaining<span class="w"> </span><span class="m">22</span><span class="w"> </span>predicted<span class="o">)</span><span class="w">    </span>rm<span class="w"> </span><span class="s1">&#39;text-generator.json&#39;</span>
+Rewrite<span class="w"> </span>310e2b2a14e06237bff9cba22a34dad0bb3c4f27<span class="w"> </span><span class="o">(</span><span class="m">2</span>/46<span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="m">1</span><span class="w"> </span>seconds<span class="w"> </span>passed,<span class="w"> </span>remaining<span class="w"> </span><span class="m">22</span><span class="w"> </span>predicted<span class="o">)</span><span class="w">    </span>rm<span class="w"> </span><span class="s1">&#39;text-generator.json&#39;</span>
+Rewrite<span class="w"> </span>6b42ddcdd0952b34d79495141f26fb7302ded763<span class="w"> </span><span class="o">(</span><span class="m">2</span>/46<span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="m">1</span><span class="w"> </span>seconds<span class="w"> </span>passed,<span class="w"> </span>remaining<span class="w"> </span><span class="m">22</span><span class="w"> </span>predicted<span class="o">)</span><span class="w">    </span>rm<span class="w"> </span><span class="s1">&#39;text-generator.json&#39;</span>
+Rewrite<span class="w"> </span>dc6ce0f2c3a7e0809a3c8639b1d64a6a62e89980<span class="w"> </span><span class="o">(</span><span class="m">5</span>/46<span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="m">3</span><span class="w"> </span>seconds<span class="w"> </span>passed,<span class="w"> </span>remaining<span class="w"> </span><span class="m">24</span><span class="w"> </span>predicted<span class="o">)</span><span class="w">    </span>rm<span class="w"> </span><span class="s1">&#39;text-generator.json&#39;</span>
+Rewrite<span class="w"> </span>0f1a21ba90795fc5bebb7185dbb312613426dcde<span class="w"> </span><span class="o">(</span><span class="m">5</span>/46<span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="m">3</span><span class="w"> </span>seconds<span class="w"> </span>passed,<span class="w"> </span>remaining<span class="w"> </span><span class="m">24</span><span class="w"> </span>predicted<span class="o">)</span><span class="w">    </span>rm<span class="w"> </span><span class="s1">&#39;text-generator.json&#39;</span>
+Rewrite<span class="w"> </span>f99c89f896c86767f1668f13bfef364d10e9fb77<span class="w"> </span><span class="o">(</span><span class="m">7</span>/46<span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="m">4</span><span class="w"> </span>seconds<span class="w"> </span>passed,<span class="w"> </span>remaining<span class="w"> </span><span class="m">22</span><span class="w"> </span>predicted<span class="o">)</span><span class="w">    </span>rm<span class="w"> </span><span class="s1">&#39;text-generator.json&#39;</span>
+Rewrite<span class="w"> </span>3de2d82d517eed846c4ecd75dfa415112da4e657<span class="w"> </span><span class="o">(</span><span class="m">7</span>/46<span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="m">4</span><span class="w"> </span>seconds<span class="w"> </span>passed,<span class="w"> </span>remaining<span class="w"> </span><span class="m">22</span><span class="w"> </span>predicted<span class="o">)</span><span class="w">    </span>rm<span class="w"> </span><span class="s1">&#39;text-generator.json&#39;</span>
+Rewrite<span class="w"> </span>3a12b7fef21fc47ba298df6f7a70597552011a59<span class="w"> </span><span class="o">(</span><span class="m">9</span>/46<span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="m">5</span><span class="w"> </span>seconds<span class="w"> </span>passed,<span class="w"> </span>remaining<span class="w"> </span><span class="m">20</span><span class="w"> </span>predicted<span class="o">)</span><span class="w">    </span>rm<span class="w"> </span><span class="s1">&#39;text-generator.json&#39;</span>
+Rewrite<span class="w"> </span>50d45f323793ba78688f40a0c46eb56b1014fedd<span class="w"> </span><span class="o">(</span><span class="m">9</span>/46<span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="m">5</span><span class="w"> </span>seconds<span class="w"> </span>passed,<span class="w"> </span>remaining<span class="w"> </span><span class="m">20</span><span class="w"> </span>predicted<span class="o">)</span><span class="w">    </span>rm<span class="w"> </span><span class="s1">&#39;text-generator.json&#39;</span>
+Rewrite<span class="w"> </span>a033af4410fa51b6bdb8ee23ad269aab6ab52b24<span class="w"> </span><span class="o">(</span><span class="m">11</span>/46<span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="m">6</span><span class="w"> </span>seconds<span class="w"> </span>passed,<span class="w"> </span>remaining<span class="w"> </span><span class="m">19</span><span class="w"> </span>predicted<span class="o">)</span><span class="w">    </span>rm<span class="w"> </span><span class="s1">&#39;text-generator.json&#39;</span>
+Rewrite<span class="w"> </span>019d9c6015874cbff221cc6fba5a6c75dff360a8<span class="w"> </span><span class="o">(</span><span class="m">11</span>/46<span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="m">6</span><span class="w"> </span>seconds<span class="w"> </span>passed,<span class="w"> </span>remaining<span class="w"> </span><span class="m">19</span><span class="w"> </span>predicted<span class="o">)</span><span class="w">    </span>rm<span class="w"> </span><span class="s1">&#39;text-generator.json&#39;</span>
+Rewrite<span class="w"> </span>50702bf3200bafa2d85302f60e1b3f83eaff109a<span class="w"> </span><span class="o">(</span><span class="m">13</span>/46<span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="m">7</span><span class="w"> </span>seconds<span class="w"> </span>passed,<span class="w"> </span>remaining<span class="w"> </span><span class="m">17</span><span class="w"> </span>predicted<span class="o">)</span><span class="w">    </span>rm<span class="w"> </span><span class="s1">&#39;text-generator.json&#39;</span>
+Rewrite<span class="w"> </span>8a683562238888cdcb6dce619184e5a9370b151b<span class="w"> </span><span class="o">(</span><span class="m">13</span>/46<span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="m">7</span><span class="w"> </span>seconds<span class="w"> </span>passed,<span class="w"> </span>remaining<span class="w"> </span><span class="m">17</span><span class="w"> </span>predicted<span class="o">)</span><span class="w">    </span>rm<span class="w"> </span><span class="s1">&#39;text-generator.json&#39;</span>
+Rewrite<span class="w"> </span>6d26119a6986dd93cf424e53ed472377f6347d5a<span class="w"> </span><span class="o">(</span><span class="m">15</span>/46<span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="m">8</span><span class="w"> </span>seconds<span class="w"> </span>passed,<span class="w"> </span>remaining<span class="w"> </span><span class="m">16</span><span class="w"> </span>predicted<span class="o">)</span><span class="w">    </span>rm<span class="w"> </span><span class="s1">&#39;text-generator.json&#39;</span>
+Rewrite<span class="w"> </span>27cc3d08ff95bdd7d0238e09031d82fe622fd633<span class="w"> </span><span class="o">(</span><span class="m">15</span>/46<span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="m">8</span><span class="w"> </span>seconds<span class="w"> </span>passed,<span class="w"> </span>remaining<span class="w"> </span><span class="m">16</span><span class="w"> </span>predicted<span class="o">)</span><span class="w">    </span>rm<span class="w"> </span><span class="s1">&#39;text-generator.json&#39;</span>
+Rewrite<span class="w"> </span>678cd092681d83c6d846623b88ff4bdf4377d79e<span class="w"> </span><span class="o">(</span><span class="m">17</span>/46<span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="m">9</span><span class="w"> </span>seconds<span class="w"> </span>passed,<span class="w"> </span>remaining<span class="w"> </span><span class="m">15</span><span class="w"> </span>predicted<span class="o">)</span><span class="w">    </span>rm<span class="w"> </span><span class="s1">&#39;text-generator.json&#39;</span>
+Rewrite<span class="w"> </span>7c8891cf95fb09c4e1fdec79671b4353507eb23d<span class="w"> </span><span class="o">(</span><span class="m">17</span>/46<span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="m">9</span><span class="w"> </span>seconds<span class="w"> </span>passed,<span class="w"> </span>remaining<span class="w"> </span><span class="m">15</span><span class="w"> </span>predicted<span class="o">)</span><span class="w">    </span>rm<span class="w"> </span><span class="s1">&#39;text-generator.json&#39;</span>
+Rewrite<span class="w"> </span>0ae42acebacf6d62b7a764208f172fa0931e7786<span class="w"> </span><span class="o">(</span><span class="m">19</span>/46<span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="m">10</span><span class="w"> </span>seconds<span class="w"> </span>passed,<span class="w"> </span>remaining<span class="w"> </span><span class="m">14</span><span class="w"> </span>predicted<span class="o">)</span><span class="w">    </span>rm<span class="w"> </span><span class="s1">&#39;text-generator.json&#39;</span>
+Rewrite<span class="w"> </span>2522b274cb31d015d72b3bbb4c4914ea2426c46e<span class="w"> </span><span class="o">(</span><span class="m">19</span>/46<span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="m">10</span><span class="w"> </span>seconds<span class="w"> </span>passed,<span class="w"> </span>remaining<span class="w"> </span><span class="m">14</span><span class="w"> </span>predicted<span class="o">)</span><span class="w">    </span>rm<span class="w"> </span><span class="s1">&#39;text-generator.json&#39;</span>
+Rewrite<span class="w"> </span>f8cb70fa5ffd3c397a56da1573b3234c145c25db<span class="w"> </span><span class="o">(</span><span class="m">21</span>/46<span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="m">11</span><span class="w"> </span>seconds<span class="w"> </span>passed,<span class="w"> </span>remaining<span class="w"> </span><span class="m">13</span><span class="w"> </span>predicted<span class="o">)</span><span class="w">    </span>rm<span class="w"> </span><span class="s1">&#39;text-generator.json&#39;</span>
+Rewrite<span class="w"> </span>3b2be4c650c1909eae95a38853d23186aa4219ab<span class="w"> </span><span class="o">(</span><span class="m">21</span>/46<span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="m">11</span><span class="w"> </span>seconds<span class="w"> </span>passed,<span class="w"> </span>remaining<span class="w"> </span><span class="m">13</span><span class="w"> </span>predicted<span class="o">)</span><span class="w">    </span>rm<span class="w"> </span><span class="s1">&#39;text-generator.json&#39;</span>
+Rewrite<span class="w"> </span>d412d0a588bdd88469a7df8cdc9a8846334f1b1b<span class="w"> </span><span class="o">(</span><span class="m">23</span>/46<span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="m">13</span><span class="w"> </span>seconds<span class="w"> </span>passed,<span class="w"> </span>remaining<span class="w"> </span><span class="m">13</span><span class="w"> </span>predicted<span class="o">)</span><span class="w">    </span>rm<span class="w"> </span><span class="s1">&#39;text-generator.json&#39;</span>
+Rewrite<span class="w"> </span>61e17f56712ea6268650c463dec15cf49260d164<span class="w"> </span><span class="o">(</span><span class="m">23</span>/46<span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="m">13</span><span class="w"> </span>seconds<span class="w"> </span>passed,<span class="w"> </span>remaining<span class="w"> </span><span class="m">13</span><span class="w"> </span>predicted<span class="o">)</span><span class="w">    </span>rm<span class="w"> </span><span class="s1">&#39;text-generator.json&#39;</span>
+Rewrite<span class="w"> </span>dc84ecc40116b2dbb587c4f95dd17f06fa96cc88<span class="w"> </span><span class="o">(</span><span class="m">25</span>/46<span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="m">14</span><span class="w"> </span>seconds<span class="w"> </span>passed,<span class="w"> </span>remaining<span class="w"> </span><span class="m">11</span><span class="w"> </span>predicted<span class="o">)</span><span class="w">    </span>rm<span class="w"> </span><span class="s1">&#39;text-generator.json&#39;</span>
+Rewrite<span class="w"> </span>fb21d6cad93520d13ec53f9d0d66f32080c2d5be<span class="w"> </span><span class="o">(</span><span class="m">25</span>/46<span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="m">14</span><span class="w"> </span>seconds<span class="w"> </span>passed,<span class="w"> </span>remaining<span class="w"> </span><span class="m">11</span><span class="w"> </span>predicted<span class="o">)</span><span class="w">    </span>rm<span class="w"> </span><span class="s1">&#39;text-generator.json&#39;</span>
+Rewrite<span class="w"> </span>152212bcc2a37e3513edead0bc083eefad7cbfab<span class="w"> </span><span class="o">(</span><span class="m">27</span>/46<span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="m">15</span><span class="w"> </span>seconds<span class="w"> </span>passed,<span class="w"> </span>remaining<span class="w"> </span><span class="m">10</span><span class="w"> </span>predicted<span class="o">)</span><span class="w">    </span>rm<span class="w"> </span><span class="s1">&#39;text-generator.json&#39;</span>
+Rewrite<span class="w"> </span>f203c2157f31bd1855224f4cd98753a710092fa0<span class="w"> </span><span class="o">(</span><span class="m">27</span>/46<span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="m">15</span><span class="w"> </span>seconds<span class="w"> </span>passed,<span class="w"> </span>remaining<span class="w"> </span><span class="m">10</span><span class="w"> </span>predicted<span class="o">)</span><span class="w">    </span>rm<span class="w"> </span><span class="s1">&#39;text-generator.json&#39;</span>
+Rewrite<span class="w"> </span>dd36c4f90f14cd2701843b6aa6b13c82608e386d<span class="w"> </span><span class="o">(</span><span class="m">43</span>/46<span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="m">23</span><span class="w"> </span>seconds<span class="w"> </span>passed,<span class="w"> </span>remaining<span class="w"> </span><span class="m">1</span><span class="w"> </span>predicted<span class="o">)</span><span class="w">    </span>rm<span class="w"> </span><span class="s1">&#39;text-generator.json&#39;</span>
+
+Rewrite<span class="w"> </span>09be21614696f1aa604cf44fffa9806c6204492b<span class="w"> </span><span class="o">(</span><span class="m">45</span>/46<span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="m">24</span><span class="w"> </span>seconds<span class="w"> </span>passed,<span class="w"> </span>remaining<span class="w"> </span><span class="m">0</span><span class="w"> </span>predicted<span class="o">)</span><span class="w">    </span>rm<span class="w"> </span><span class="s1">&#39;text-generator.json&#39;</span>
+
+Rewrite<span class="w"> </span>a1a8964fad83befa202e2c130edac2bc47ccd905<span class="w"> </span><span class="o">(</span><span class="m">45</span>/46<span class="o">)</span><span class="w"> </span><span class="o">(</span><span class="m">24</span><span class="w"> </span>seconds<span class="w"> </span>passed,<span class="w"> </span>remaining<span class="w"> </span><span class="m">0</span><span class="w"> </span>predicted<span class="o">)</span><span class="w">    </span>rm<span class="w"> </span><span class="s1">&#39;text-generator.json&#39;</span>
+
+
+Ref<span class="w"> </span><span class="s1">&#39;refs/heads/main&#39;</span><span class="w"> </span>was<span class="w"> </span>rewritten
+</code></pre></div></td></tr></table></div></p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      2024.8 by neojinming ; CC BY-NC-SA 4.0 License
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/neojinmingli" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "search.suggest", "toc.follow", "navigation.top", "search.highlight", "search.share", "content.code.copy", "header.autohide", "content.footnote.tooltips"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      
+    
+  </body>
+</html>
